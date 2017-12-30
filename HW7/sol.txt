@@ -1,0 +1,33 @@
+1) A-B-D-I-C-E-G-J-F-H -- Queue
+
+** 				
+Output:	A D B E G C H F I J	
+Working node A. Connect D, Connect B. Queue: [B D]
+Working node D. Connect E, Connect G. Queue: [G E B]
+Working node B. Connect C. Queue: [C G E]
+Working node E. Connnect H, Connect F. Queue[F H C G]
+Working node G. Connect I, Connect J. Queue[J I F H C]
+
+	
+
+2) A-B-C-E-D-G-H-F-J-I
+
+** 
+Output: A D B E C F H G J I
+Working node A. Connect D. Stack[A D]
+Worknig node D. Connect B. Stack[A D B]
+Working node B. Connect E. Stack[A D B E]
+Worknig node E. Connect C. Stack[A D B E C]
+Working node C. Connect F. Stack[A D B E C F]
+Working node F. Connect H. Stack[A D B E C F H]
+Working node H. Connect G. Stack[A D B E C F H G]
+Working node G. Connect J. Stack[A D B E C F H G J]
+Working node J. Connect I. Stack[A D B E C F H G J I]
+
+
+3)
+
+**
+Set:
+Stack:
+

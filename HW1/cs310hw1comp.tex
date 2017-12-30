@@ -1,0 +1,196 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[10pt]{article}
+
+ \usepackage{tikz}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\theoremstyle{definition}
+\newtheorem*{defn*}{Definition}
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{CS310: Homework 1}%replace X with the appropriate number
+\author{Scott Fenton\\ %replace with your name
+} %if necessary, replace with your course title
+ 
+\maketitle
+ 
+\begin{exercise}{(1)} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+Solve the sum of a geometric series: $\displaystyle \sum_{i=1}^{\infty}(2/5)^i$
+\end{exercise}
+ 
+\begin{defn*}
+Equation to solve for a infinite geometric series given a special case $|r| < 1$:
+%Note 1: The * tells LaTeX not to number the lines.  If you remove the *, be sure to remove it below, too.
+%Note 2: Inside the align environment, you do not want to use $-signs.  The reason for this is that this is already a math environment. This is why we have to include \text{} around any text inside the align environment.
+\begin{align*}
+\sum_{i=1}^{\infty}ar^n & = \frac{a_0}{1-r} & (\text{$a_0$ is first term})\\ 
+\end{align*}
+\end{defn*}
+ 
+\begin{solution}{(1)}
+$\displaystyle \sum_{i=1}^{\infty}(2/5)^i = \frac{2}{3}$  
+\end{solution}
+ 
+\begin{proof}[Work]%Whatever you put in the square brackets will be the label for the block of text to follow in the proof environment.
+Solving for sum using $ s = \frac{a}{1-r}$
+\begin{align}
+& \frac{2}{5} < 1 && (\text{Convergence Test})\\
+s  & = \frac{a}{1-r}\\
+& = \frac{.4}{1-.4}\\
+& = \frac{.4}{.6}\\
+& = \frac{2}{3}
+\end{align}
+\end{proof}
+
+\begin{exercise}{(2a)} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+How many binary digits are there in $2^{50}$ and $10^{50}$? How are the two numbers related?
+Hint: This is a question about logarithm.
+\end{exercise}
+
+\begin{defn*}{\textbf {1.1}}
+Base Conversion formula
+\begin{align*}
+\log_a x = \frac{\log_b x}{\log_b a} && (\text{convert from base a to base b})\\ 
+\end{align*}
+\end{defn*}
+
+\begin{solution}{(2a)}
+There are 50 binary digits in $2^{50}$ and about 166 binary digits in $10^{50}$. We can see this relationship expressed in the base conversion formula, when base 10 is converted into base 2. This same formula could be applied to find how many hex or octal digits there are in these numbers.  
+\end{solution}
+
+\begin{proof}[Work]%Whatever you put in the square brackets will be the label for the block of text to follow in the proof environment.
+Utilizing base conversion formula
+\begin{align*}
+\log_2 10^{50} & = \frac{\log_{10} 10^{50}}{\log_{10} 2} && (\text{from def. 1.1})\\
+& = \frac{50}{.301} \\
+& = 166.096\\
+& = 166 && (\text{round down})
+\end{align*}
+\end{proof}
+
+\begin{exercise}{(2b)} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+Show that $log_a {x} = c * log_b {x}$ for some constant c expressed only in terms of constants
+a and b.
+\end{exercise}
+
+\begin{solution}{(2b)}
+We can see that $c = \frac{1}{\log_b a}$ from the formula for base conversion (Definition 1.1)
+\end{solution}
+
+\begin{proof}[Work]
+\begin{align*}
+\log_a x & = \frac{\log_b x}{\log_b a} && (\text{from defintion 1.1})\\ 
+log_a {x} & = c * log_b {x}\\
+c & = \frac{1}{log_b {a}}\\
+\log_a x & = \frac{\log_b x}{\log_b a} 
+\end{align*}
+\end{proof}
+
+\begin{exercise}{(3a)} 
+Problem 5.19 of the textbook.
+\end{exercise}
+
+\begin{solution}{(3a)}
+The order of each algorith from slowest growth to largest growth is $\frac{2}{n}, 37, \sqrt n, n \log \log n, \\
+n \log n, n log n^2, n \log^2 n, n^{1.5}, n^2, $.
+\end{solution}
+
+
+\begin{exercise}{(3b)} 
+Rank the following functions: log n, log(n2), log log n, and log2 n. Explain reasons for
+your ranking.
+\end{exercise}
+
+\begin{solution}{(3b)}
+The ranking from slowest to greatest growth is $\log \log n, \log n, \log n^2, and \log^2 n$. The growth rates of log n and log $n^2$ are the same. 
+\end{solution}
+
+\begin{exercise}{(4)} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+Problem 5.26 of the textbook: Analyze the cost of an average successful search for the binary search
+algorithm.
+\end{exercise}
+
+\begin{solution}{(4)}
+The average successful search is done in $O(\log n)$ time.
+\begin{align*}
+&\frac{1}{n}\sum_{i=1}^{\log n + 1}i2^{i-1} && (\text{Represents the nodes at each level})\\
+&\sum_{i=1}^{\log n + 1}i2^{i-1}  && (\text{expand summation})\\
+& = 1*2^0 + 2*2^1 + 3*2^2 + 4 * 2 + ... + \log (n+1) * 2^{\log (n+1)-1}\\
+& = 1 * 2^{\log (n+1) -1}\\
+&\sum_{i=1}^{\log (n + 1)}((n+1) - 2^{i-1} \\
+& = \sum_{i=1}^{\log (n + 1)}((n+1) - \sum_{i=1}^{\log (n + 1)}2^{i-1}\\
+& = (n+1) * \log (n+1) - n \\
+& = \frac {(n + 1) + \log (n+1) - 1}{n}  && (\text{1/n comes from original equation})\\
+& = O(\log n)
+\end{align*}
+\end{solution}
+
+\begin{exercise}{(5)} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+Use the telescoping technique to derive this equation:\\
+$\displaystyle \sum_{i=1}^{n}i^2  = \frac{n(n+1)(2n+1)}{6}$\\
+
+\end{exercise}
+
+\begin{defn*}{\textbf {1.2}}
+\begin{align*}
+\sum_{i=1}^{n}i  & = \frac{n(n+1)}{2} && (\text{formula for summation of i})
+\end{align*}
+\end{defn*}
+
+\begin{solution}{(5)}
+Prove $\displaystyle \sum_{i=1}^{n}i^2  = \frac{n(n+1)(2n+1)}{6}$
+\end{solution}
+
+\begin{align*}
+\sum_{i=1}^{n}i^2  & = \frac{n(n+1)(2n+1)}{6} && (\text{Original Problem}) \\
+& \sum_{i=1}^{n}i^3 - (i -1)^3 = n^3 + 3n^2 + 3n && (\text{expand telescoping sum})\\
+& \sum_{i=1}^{n}i^3 - (i -1)^3 && (\text{Insert telescoping sum for $i^2$}) \\
+& = i^3 - i^3 + 3i^2 + 3i + 1 \\
+& = 3i^2 + 3i + 1\\
+& 3\sum_{i=1}^{n}i^2 + 3\sum_{i=1}^{n}i + \sum_{i=1}^{n}1 \\
+& 3\sum_{i=1}^{n}i^2 + 3\frac{n(n+1)}{2} + n && (\text{Insert definition 1.2, sum of 1 goes to n})\\
+& 3\sum_{i=1}^{n}i^2 + 3\frac{n(n+1)}{2} + n = n^3 + 3n^2 + 3n && (\text{Set equal to expanded summation})\\
+& \sum_{i=1}^{n}i^2 = \frac{1}{3}(n^3 + 3n^2 + 3n - 3\frac{n(n+1)}{2} - n)\\
+& \sum_{i=1}^{n}i^2 = \frac{1}{6}n(2n^2 + 3n + 1) \\
+& \sum_{i=1}^{n}i^2 = \frac{n(n+1)(2n+1)}{6}
+\end{align*}
+
+
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
